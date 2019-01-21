@@ -14,6 +14,7 @@ RUN install_packages \
   libav-tools \
   cmake \
   libraspberrypi-bin \
+  libraspberrypi-dev \
   haproxy
 
 # Enable haproxy

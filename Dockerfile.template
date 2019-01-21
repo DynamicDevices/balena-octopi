@@ -1,6 +1,6 @@
 FROM balenalib/%%RESIN_MACHINE_NAME%%-debian:jessie
 
-RUN install_packages
+RUN install_packages \
 	python-pip \
 	python-dev \
 	git \

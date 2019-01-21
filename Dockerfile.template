@@ -1,6 +1,6 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-debian:jessie
+FROM balenalib/%%RESIN_MACHINE_NAME%%-debian:jessie
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN install_packages
 	python-pip \
 	python-dev \
 	git \
@@ -14,9 +14,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	libav-tools \
 	cmake \
 	haproxy \
-  && apt-get clean \
-  && rm -rf /tmp/* /var/tmp/*  \
-  && rm -rf /var/lib/apt/lists/*
 
 # Enable haproxy
 RUN echo 'ENABLED=1' >> /etc/default/haproxy
@@ -36,11 +33,18 @@ RUN git clone https://github.com/foosel/OctoPrint.git ./octoprint \
 	&& cd /usr/src/app/octoprint && pip install "https://github.com/OctoPrint/OctoPrint-DisplayProgress/archive/master.zip" \
 	&& cd /usr/src/app/octoprint && pip install https://github.com/malnvenshorn/OctoPrint-CostEstimation/archive/master.zip
 
+# Build mjpg_streamer
+RUN git clone https://github.com/jacksonliam/mjpg-streamer.git ./mjpg-streamer
+RUN cd mjpg-streamer && make
+
 # Move app to filesystem
 COPY ./app ./
 
 ## uncomment if you want systemd
 ENV INITSYSTEM on
+
+# Enable udevd so that plugged dynamic hardware devices show up in our container.
+ENV UDEV=1
 
 # Start app
 CMD ["bash", "/usr/src/app/start.sh"]

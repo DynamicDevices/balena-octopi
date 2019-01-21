@@ -35,7 +35,7 @@ RUN git clone https://github.com/foosel/OctoPrint.git ./octoprint \
 
 # Build mjpg_streamer
 RUN git clone https://github.com/jacksonliam/mjpg-streamer.git ./mjpg-streamer
-RUN cd mjpg-streamer && make
+RUN cd mjpg-streamer/mjpg-streamer-experimental && make
 
 # Move app to filesystem
 COPY ./app ./

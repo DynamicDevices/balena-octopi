@@ -7,7 +7,7 @@ modprobe bcm2835-v4l2 >/dev/null 2>&1 || true
 service haproxy start >/dev/null 2>&1 || true
 
 # start picam stream
-cd /usr/src/app/mjpg-streamer/mjpg-streamer-experimental/ && ./mjpg_streamer -i "./input_uvc.so -y" -o "./output_http.so" -w ./www  &
+cd /usr/src/app/mjpg-streamer/mjpg-streamer-experimental/ && ./mjpg_streamer -i "./input_raspicam.so" -o "./output_http.so -w ./www" -b
 
 # start Octoprint
 octoprint serve --iknowwhatimdoing --port=5000 --basedir /data

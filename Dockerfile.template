@@ -17,7 +17,7 @@ RUN install_packages \
 
 RUN install_packages \
   libopencv-dev \
-  libgphoto2
+  libgphoto2-dev
 
 # Enable haproxy
 RUN echo 'ENABLED=1' >> /etc/default/haproxy

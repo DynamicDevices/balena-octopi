@@ -13,7 +13,7 @@ RUN install_packages \
 	imagemagick \
 	libav-tools \
 	cmake \
-	haproxy \
+	haproxy
 
 # Enable haproxy
 RUN echo 'ENABLED=1' >> /etc/default/haproxy

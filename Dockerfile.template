@@ -26,6 +26,7 @@ RUN install_packages \
   libhighgui-dev \
   libcvaux-dev \
   libjpeg-dev \
+  libjpeg62-turbo-dev \
   libtiff-dev
 
 # Enable haproxy

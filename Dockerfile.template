@@ -34,8 +34,8 @@ RUN git clone https://github.com/foosel/OctoPrint.git ./octoprint \
 	&& cd /usr/src/app/octoprint && pip install https://github.com/malnvenshorn/OctoPrint-CostEstimation/archive/master.zip
 
 # Build mjpg_streamer
-RUN git clone https://github.com/jacksonliam/mjpg-streamer.git ./mjpg-streamer
-RUN cd mjpg-streamer/mjpg-streamer-experimental && make
+RUN git clone https://github.com/jacksonliam/mjpg-streamer.git ./mjpg-streamer \
+  && cd mjpg-streamer/mjpg-streamer-experimental && make
 
 # Move app to filesystem
 COPY ./app ./

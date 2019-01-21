@@ -13,6 +13,7 @@ RUN install_packages \
 	imagemagick \
 	libav-tools \
 	cmake \
+  libopencv-dev \
 	haproxy
 
 # Enable haproxy

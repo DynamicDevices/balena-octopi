@@ -12,3 +12,9 @@ cd /usr/src/app/mjpg-streamer/mjpg-streamer-experimental/ && ./mjpg_streamer -i 
 
 # start Octoprint
 octoprint serve --iknowwhatimdoing --port=5000 --basedir /data
+
+while [ 1 ]
+do
+  sleep 1
+done
+
